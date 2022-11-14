@@ -5,7 +5,7 @@ export default function Button({ fetchUser }) {
   const client_id = `ad2c7654ff92405c949de032535da426`;
   const redirect_uri = `https://spotify-crushes.vercel.app/`;
   const scopes = `user-top-read`;
-  const AUTHORIZATION_URL = `https://accounts.spotify.com/authorize?client_id=${client_id}&response_type=token&redirect_uri=${redirect_uri}&scope=${scopes}&show_dialog=true`;
+  const AUTHORIZATION_URL = `https://accounts.spotify.com/authorize?client_id=${client_id}&response_type=code&redirect_uri=${redirect_uri}&scope=${scopes}&show_dialog=true`;
   const login = () => {
     let popup = window.open(
       AUTHORIZATION_URL,
@@ -46,5 +46,9 @@ export default function Button({ fetchUser }) {
     }
   }, []);
 
-  return <>{button && <button onClick={login}>logginnnn</button>}</>;
+  return (
+    <>
+      {button && <button onClick={login}>Login to see your top songs!</button>}
+    </>
+  );
 }
