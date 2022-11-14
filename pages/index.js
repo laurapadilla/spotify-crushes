@@ -13,7 +13,7 @@ export default function Home() {
   if (!data) {
     return <h2>nothing to see here</h2>;
   }
-  const songs = user ? user.tracks : data.tracks;
+  const songs = user ? user : data.tracks;
   console.log(user);
 
   return (
