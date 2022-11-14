@@ -4,7 +4,7 @@ export default function Button({ fetchUser }) {
   const [button, setToken] = useState("");
   const [token, showButton] = useState(true);
   const client_id = `ad2c7654ff92405c949de032535da426`;
-  const redirect_uri = `http%3A%2F%2Flocalhost%3A3000`;
+  const redirect_uri = `http://localhost:3000`;
   const scopes = `user-top-read`;
   const AUTHORIZATION_URL = `https://accounts.spotify.com/authorize?client_id=${client_id}&response_type=token&redirect_uri=${redirect_uri}&scope=${scopes}&show_dialog=true`;
   const login = () => {
@@ -41,31 +41,11 @@ export default function Button({ fetchUser }) {
   };
 
   useEffect(() => {
-    const hash = window.location.hash;
-    let token = window.localStorage.getItem("token");
-
-    if (!token && hash) {
-      token = hash
-        .substring(1)
-        .split("&")
-        .find((elem) => elem.startsWith("access_token"))
-        .split("=")[1];
-
-      window.location.hash = "";
-      window.localStorage.setItem("token", token);
-    }
-
-    setToken(token);
-
+    const token = window.location.hash.substr(1).split("&")[0].split("=")[1];
     if (token) {
       window.opener.spotifyCallback(token);
     }
-    console.log(token);
   }, []);
 
-  return (
-    <button onClick={login} style={{ display: button ? "block" : "none" }}>
-      logginnnn
-    </button>
-  );
+  return <button onClick={login}>logginnnn</button>;
 }
