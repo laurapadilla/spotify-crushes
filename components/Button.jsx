@@ -34,7 +34,7 @@ export default function Button({ fetchUser }) {
           }));
           console.log(items);
           console.log("hi");
-          fetchUser({ tracks });
+          fetchUser(tracks);
         });
     };
   };
