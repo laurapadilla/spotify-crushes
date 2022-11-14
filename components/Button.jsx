@@ -15,7 +15,7 @@ export default function Button({ fetchUser }) {
     window.spotifyCallback = (payload) => {
       console.log("there");
       popup.close();
-      fetch("https://api.spotify.com/v1/me/top/tracks?time_range=short_term", {
+      fetch("https://api.spotify.com/v1/me/top/tracks?time_range=medium_term", {
         method: "GET",
         headers: {
           Authorization: `Bearer ${payload}`,
@@ -32,6 +32,7 @@ export default function Button({ fetchUser }) {
             songUrl: track.external_urls.spotify,
             title: track.name,
           }));
+          setNewTracks(tracks);
           console.log(items);
           console.log("hi");
           fetchUser(tracks);
