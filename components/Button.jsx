@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 
 export default function Button({ fetchUser }) {
-  const [button, setToken] = useState("");
-  const [token, showButton] = useState(true);
+  const [button, showButton] = useState(true);
   const client_id = `ad2c7654ff92405c949de032535da426`;
   const redirect_uri = `https://spotify-crushes.vercel.app/`;
   const scopes = `user-top-read`;
@@ -47,5 +46,5 @@ export default function Button({ fetchUser }) {
     }
   }, []);
 
-  return <button onClick={login}>logginnnn</button>;
+  return <>{button && <button onClick={login}>logginnnn</button>}</>;
 }
