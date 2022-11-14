@@ -15,7 +15,7 @@ export default function Button({ fetchUser }) {
     window.spotifyCallback = (payload) => {
       console.log("there");
       popup.close();
-      fetch("https://api.spotify.com/v1/me/top/tracks", {
+      fetch("https://api.spotify.com/v1/me/top/tracks?time_range=short_term", {
         method: "GET",
         headers: {
           Authorization: `Bearer ${payload}`,
