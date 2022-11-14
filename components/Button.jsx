@@ -32,7 +32,6 @@ export default function Button({ fetchUser }) {
             songUrl: track.external_urls.spotify,
             title: track.name,
           }));
-          setNewTracks(tracks);
           console.log(items);
           console.log("hi");
           fetchUser(tracks);

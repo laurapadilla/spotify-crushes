@@ -11,7 +11,7 @@ export default async (_, res) => {
     title: track.name,
   }));
 
-  console.log(items);
+  console.log(tracks);
 
   return res.status(200).json({ tracks });
 };
