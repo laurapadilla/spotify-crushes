@@ -6,6 +6,9 @@ export default async (_, res) => {
   const { items } = await response.json();
 
   const tracks = items.map((track) => ({
+    id: track.id,
+    album: track.album.name,
+    albumImg: track.album.images[0],
     artist: track.artists.map((_artist) => _artist.name).join(", "),
     songUrl: track.external_urls.spotify,
     title: track.name,
