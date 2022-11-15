@@ -3,18 +3,13 @@ import Image from "next/image";
 import Button from "../components/Button";
 import styles from "../styles/Home.module.css";
 import { useState, useEffect } from "react";
-import useSWR from "swr";
-import fetcher from "../lib/fetcher";
+import useUser from "../hooks/use-user";
 
 export default function Home() {
   const [user, fetchUser] = useState(null);
 
-  const { data } = useSWR("/api/recentlyPlayed", fetcher);
-  if (!data) {
-    return <h2>nothing to see here</h2>;
-  }
+  const { data, isLoading } = useUser();
   const songs = user ? user.tracks : data?.tracks;
-  console.log(user);
 
   return (
     <div className={styles.container}>
@@ -26,9 +21,16 @@ export default function Home() {
 
       <h1>{user ? "Your" : "My"} Spotify Crushes</h1>
       <Button fetchUser={fetchUser} />
-      {songs.map((song, index) => {
-        return <h3 key={index}>{song.title}</h3>;
-      })}
+      {!isLoading ? (
+        <>
+          {songs.map((song, index) => {
+            const { title, artist, songUrl } = song;
+            return <h3 key={index}>{title}</h3>;
+          })}
+        </>
+      ) : (
+        <h2>nothing to see here</h2>
+      )}
     </div>
   );
 }

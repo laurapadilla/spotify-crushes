@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 export default function Button({ fetchUser }) {
   const [button, showButton] = useState(true);
   const client_id = `ad2c7654ff92405c949de032535da426`;
-  const redirect_uri = `https%3A%2F%2Fspotify-crushes.vercel.app%2F`;
+  const redirect_uri = `https://spotify-crushes.vercel.app/`;
   const scopes = `user-top-read`;
   const AUTHORIZATION_URL = `https://accounts.spotify.com/authorize?client_id=${client_id}&response_type=token&redirect_uri=${redirect_uri}&scope=${scopes}&show_dialog=true`;
   const login = () => {
@@ -34,7 +34,7 @@ export default function Button({ fetchUser }) {
           }));
           console.log(items);
           console.log("hi");
-          fetchUser(tracks);
+          fetchUser({ tracks });
         });
     };
   };
