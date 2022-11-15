@@ -18,7 +18,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h1>{user ? "Your" : "My"} Spotify Crushes</h1>
+      <h1>{user ? "Your" : "Laura's"} Spotify Crushes</h1>
       <Button fetchUser={fetchUser} />
       {isLoading ? (
         "nothing"
