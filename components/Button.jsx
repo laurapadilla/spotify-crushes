@@ -85,7 +85,7 @@ export default function Button({ fetchUser }) {
           }));
           setTracks(tracks);
           fetchUser({ tracks });
-          console.log("these are the button tracks", tracks[0]);
+          console.log("these are the button tracks", tracks);
         });
     }
   }, []);
