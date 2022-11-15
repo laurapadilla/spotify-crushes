@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Image from "next/image";
 import Button from "../components/Button";
 import styles from "../styles/Home.module.css";
 import { useState, useEffect } from "react";
@@ -21,15 +20,14 @@ export default function Home() {
 
       <h1>{user ? "Your" : "My"} Spotify Crushes</h1>
       <Button fetchUser={fetchUser} />
-      {!isLoading ? (
+      {isLoading ? (
+        "nothing"
+      ) : (
         <>
           {songs.map((song, index) => {
-            const { title, artist, songUrl } = song;
-            return <h3 key={index}>{title}</h3>;
+            return <h3 key={index}>{song.title}</h3>;
           })}
         </>
-      ) : (
-        <h2>nothing to see here</h2>
       )}
     </div>
   );
