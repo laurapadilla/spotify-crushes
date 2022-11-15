@@ -21,7 +21,7 @@ export default function Home() {
       <h1>{user ? "Your" : "Laura's"} Spotify Crushes</h1>
       <Button fetchUser={fetchUser} />
       {isLoading ? (
-        "nothing"
+        "loading..."
       ) : (
         <>
           {songs.map((song, index) => {
