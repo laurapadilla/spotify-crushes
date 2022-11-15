@@ -28,7 +28,7 @@ export default function Home() {
             return (
               <article key={song.id}>
                 <h2>{song.title}</h2>
-                <h3>by {song.artist}</h3>
+                <p>by {song.artist}</p>
               </article>
             );
           })}
