@@ -91,7 +91,14 @@ export default function Button({ fetchUser }) {
 
   return (
     <>
-      {button && <a href={AUTHORIZATION_URL}>Login to see your top songs!</a>}
+      {button && (
+        <a
+          style={{ color: "mediumseagreen", textDecoration: "underline" }}
+          href={AUTHORIZATION_URL}
+        >
+          Login to see your top songs!
+        </a>
+      )}
     </>
   );
 }
