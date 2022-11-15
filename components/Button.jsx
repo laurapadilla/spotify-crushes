@@ -89,15 +89,22 @@ export default function Button({ fetchUser }) {
     }
   }, []);
 
+  const logout = () => {
+    setToken("");
+    window.localStorage.removeItem("token");
+  };
+
   return (
     <>
-      {button && (
+      {!token ? (
         <a
           style={{ color: "mediumseagreen", textDecoration: "underline" }}
           href={AUTHORIZATION_URL}
         >
           Login to see your top songs!
         </a>
+      ) : (
+        <button onClick={logout}>log me OUT</button>
       )}
     </>
   );
