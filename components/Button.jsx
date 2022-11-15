@@ -74,6 +74,7 @@ export default function Button({ fetchUser }) {
         })
         .then((data) => {
           const { items } = data;
+          showButton(false);
           const tracks = items.map((track) => ({
             id: track.id,
             album: track.album.name,

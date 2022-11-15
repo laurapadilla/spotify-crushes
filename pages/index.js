@@ -25,7 +25,12 @@ export default function Home() {
       ) : (
         <>
           {songs.map((song, index) => {
-            return <h3 key={index}>{song.title}</h3>;
+            return (
+              <article key={song.id}>
+                <h2>{song.title}</h2>
+                <h3>by {song.artist}</h3>
+              </article>
+            );
           })}
         </>
       )}
