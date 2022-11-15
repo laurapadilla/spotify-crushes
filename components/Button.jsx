@@ -16,12 +16,15 @@ export default function Button({ fetchUser }) {
     window.spotifyCallback = (payload) => {
       console.log("there");
       popup.close();
-      fetch("https://api.spotify.com/v1/me/top/tracks?time_range=medium_term", {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${payload}`,
-        },
-      })
+      fetch(
+        "https://api.spotify.com/v1/me/top/tracks?time_range=medium_term&limit=50&offset=0",
+        {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${payload}`,
+          },
+        }
+      )
         .then((response) => {
           return response.json();
         })
