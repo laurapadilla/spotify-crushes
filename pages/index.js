@@ -3,7 +3,6 @@ import Button from "../components/Button";
 import styles from "../styles/Home.module.css";
 import { useState, useEffect } from "react";
 import useUser from "../hooks/use-user";
-import "@react95/icons/icons.css";
 
 export default function Home() {
   const [user, fetchUser] = useState(null);
