@@ -15,7 +15,7 @@ a {
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
@@ -23,4 +23,70 @@ a {
     color: white;
     background: black;
   }
+} */
+
+@font-face {
+  font-family: "Messapia";
+  src: url("./fonts/Messapia-Regular.woff2") format("woff2"),
+    url("./fonts/Messapia-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Messapia";
+  src: url("./fonts/Messapia-Bold.woff2") format("woff2"),
+    url("./fonts/Messapia-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "GT America Expanded Trial";
+  src: url("./fonts/GT-America-Expanded-Regular-Trial.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "GT America Expanded Trial";
+  src: url("./fonts/GT-America-Expanded-Medium-Trial.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "GT America Expanded Trial";
+  src: url("./fonts/GT-America-Expanded-Bold-Trial.woff2") format("woff2");
+  font-weight: normal;
+  font-style: bold;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "W95FA";
+  src: url("./fonts/w95fa.woff2") format("woff2"),
+    url("./fonts/w95fa.woff") format(woff);
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgb(99 234 85);
+  box-shadow: 0 0 8px 5px rgb(99 234 85);
+}
+
+body {
+  scrollbar-color: rgb(99 234 85) rgb(99 234 85);
 }
