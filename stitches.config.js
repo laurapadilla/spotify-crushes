@@ -3,17 +3,16 @@ import { createStitches } from "@stitches/react";
 const stitches = createStitches({
   theme: {
     fontSizes: {
-      0: "14px",
-      1: "16px",
-      2: "18px",
+      1: "8px",
+      1.5: "14px",
+      2: "16px",
       3: "24px",
-      4: "36px",
-      5: "46px",
-      6: "56px",
-      7: "66px",
-      8: "76px",
-      9: "86px",
-      10: "126px",
+      4: "32px",
+      5: "48px",
+    },
+    fontFamily: {
+      serif: "Messapia",
+      sans: "GT America Expanded Trial",
     },
     letterSpacings: {
       0: 0,

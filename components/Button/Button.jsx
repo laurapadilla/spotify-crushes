@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
+import { LoginButton } from "./styles";
 
-export default function Button({ fetchUser }) {
+export function Button({ fetchUser }) {
   const [button, showButton] = useState(true);
   const client_id = `ad2c7654ff92405c949de032535da426`;
   const redirect_uri = `https://spotify-crushes.vercel.app/`;
@@ -54,7 +55,9 @@ export default function Button({ fetchUser }) {
 
   return (
     <>
-      <button onClick={login}>Login to see YOUR top songs!</button>
+      <LoginButton as="button" onClick={login}>
+        Login to see YOUR top songs!
+      </LoginButton>
     </>
   );
 }
