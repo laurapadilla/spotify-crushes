@@ -17,7 +17,7 @@ export default function Button({ fetchUser }) {
       console.log("there");
       popup.close();
       fetch(
-        "https://api.spotify.com/v1/me/top/tracks?time_range=medium_term&limit=50&offset=0",
+        "https://api.spotify.com/v1/me/top/tracks?time_range=long_term&limit=40&offset=0",
         {
           method: "GET",
           headers: {
