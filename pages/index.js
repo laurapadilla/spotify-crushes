@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
-import { Button, Header, TopTracks } from "../components";
+import { Button, Header, TopTracks, Text } from "../components";
 import { useState, useEffect } from "react";
 import useUser from "../hooks/use-user";
 import Container from "../components/Container";
@@ -25,8 +25,32 @@ export default function Home() {
           padding: "1rem",
         }}
       >
-        <Header user={user} isLoading={isLoading} />
-        <Button fetchUser={fetchUser} />
+        <Header />
+        <Container
+          css={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            marginTop: "2rem",
+            marginBottom: "3rem",
+          }}
+        >
+          <Text style="subhead">
+            {user
+              ? "nice songs"
+              : "This is what I've been listening to this past year"}
+          </Text>
+        </Container>
+        <Container
+          css={{
+            display: "flex",
+            justifyContent: "center",
+            marginTop: "2rem",
+            marginBottom: "4rem",
+          }}
+        >
+          <Button fetchUser={fetchUser} />
+        </Container>
         {isLoading ? (
           "loading..."
         ) : (

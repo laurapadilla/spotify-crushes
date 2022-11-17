@@ -7,15 +7,22 @@ export const Text = styled("p", {
       pageTitle: {
         fontFamily: theme.fontFamily.serif,
       },
+      subhead: {
+        fontFamily: theme.fontFamily.sans,
+        fontSize: 20,
+      },
       songTitle: {
         fontFamily: theme.fontFamily.sansMedium,
         textTransform: "uppercase",
+        fontSize: 12,
       },
       songArtist: {
         fontFamily: theme.fontFamily.mono,
+        fontSize: 14,
       },
       songAlbum: {
         fontFamily: theme.fontFamily.monoItalic,
+        fontSize: 14,
       },
     },
     size: {
@@ -39,6 +46,12 @@ export const Text = styled("p", {
       },
       7: {
         fontSize: "$7",
+      },
+      8: {
+        fontSize: "$8",
+      },
+      9: {
+        fontSize: "$9",
       },
     },
   },
