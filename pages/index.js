@@ -32,18 +32,18 @@ export default function Home() {
           {songs.map((song, index) => {
             return (
               <article key={song.id}>
+                <Image
+                  alt={song.album}
+                  src={song.albumImg.url}
+                  width={350}
+                  height={350}
+                />
                 <h2>
                   <a href={song.songUrl}>{song.title}</a>
                 </h2>
                 <p>
                   {song.artist} | {song.album}
                 </p>
-                <Image
-                  alt={song.album}
-                  src={song.albumImg.url}
-                  width={200}
-                  height={200}
-                />
               </article>
             );
           })}

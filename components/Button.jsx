@@ -52,61 +52,6 @@ export default function Button({ fetchUser }) {
     }
   }, []);
 
-  // const [token, setToken] = useState("");
-  // const [tracks, setTracks] = useState([]);
-
-  // useEffect(() => {
-  //   const hash = window.location.hash;
-  //   let token = window.localStorage.getItem("token");
-
-  //   if (!token && hash) {
-  //     token = hash
-  //       .substring(1)
-  //       .split("&")
-  //       .find((elem) => elem.startsWith("access_token"))
-  //       .split("=")[1];
-
-  //     window.location.hash = "";
-  //     window.localStorage.setItem("token", token);
-  //   }
-
-  //   setToken(token);
-
-  //   if (token) {
-  //     fetch(
-  //       "https://api.spotify.com/v1/me/top/tracks?time_range=medium_term&limit=50&offset=0",
-  //       {
-  //         headers: {
-  //           Authorization: `Bearer ${token}`,
-  //         },
-  //       }
-  //     )
-  //       .then((response) => {
-  //         return response.json();
-  //       })
-  //       .then((data) => {
-  //         const { items } = data;
-  //         showButton(false);
-  //         const tracks = items.map((track) => ({
-  //           id: track.id,
-  //           album: track.album.name,
-  //           albumImg: track.album.images[0],
-  //           artist: track.artists.map((_artist) => _artist.name).join(", "),
-  //           songUrl: track.external_urls.spotify,
-  //           title: track.name,
-  //         }));
-  //         setTracks(tracks);
-  //         fetchUser({ tracks });
-  //         console.log("these are the button tracks", tracks);
-  //       });
-  //   }
-  // }, []);
-
-  // const logout = () => {
-  //   setToken("");
-  //   window.localStorage.removeItem("token");
-  // };
-
   return (
     <>
       <button onClick={login}>Login to see YOUR top songs!</button>
