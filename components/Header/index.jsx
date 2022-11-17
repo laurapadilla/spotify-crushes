@@ -1,4 +1,5 @@
 import Container from "../Container";
+import { Text } from "../Text";
 import { Title, Subhead } from "./styles";
 import { theme } from "../../stitches.config";
 
@@ -15,7 +16,9 @@ export function Header({ user }) {
         gap: "48px",
       }}
     >
-      <Title>Top40.fm</Title>
+      <Text as="h1" size="6" style="pageTitle">
+        Top40.fm
+      </Text>
       <Subhead>
         {user
           ? "nice songs"

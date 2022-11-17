@@ -1,5 +1,6 @@
 import Container from "../Container";
 import Image from "next/image";
+import { Text } from "../Text";
 
 export function TopTracks({ songs }) {
   return (
@@ -12,9 +13,10 @@ export function TopTracks({ songs }) {
         height: "60vh",
         overflow: "auto",
         border: "1px solid black",
-        padding: "1rem",
+        padding: "1.5rem",
         alignItems: "center",
         justifyContent: "center",
+        marginX: "2rem",
       }}
     >
       {songs.map((song, index) => {
@@ -26,12 +28,18 @@ export function TopTracks({ songs }) {
               width={350}
               height={350}
             />
-            <h2>
+            <Text as="p" style="songTitle" size={1.75}>
               <a href={song.songUrl}>{song.title}</a>
-            </h2>
-            <p>
-              {song.artist} | {song.album}
-            </p>
+            </Text>
+            <Container as="span">
+              <Text as="span" style="songArtist">
+                {song.artist}
+              </Text>{" "}
+              /{" "}
+              <Text as="span" style="songAlbum">
+                {song.album}
+              </Text>
+            </Container>
           </article>
         );
       })}

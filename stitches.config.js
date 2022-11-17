@@ -4,15 +4,21 @@ const stitches = createStitches({
   theme: {
     fontSizes: {
       1: "8px",
-      1.5: "14px",
+      2: "12px",
+      1.75: "14px",
       2: "16px",
       3: "24px",
       4: "32px",
-      5: "48px",
+      5: "40px",
+      6: "48px",
     },
     fontFamily: {
       serif: "Messapia",
-      sans: "GT America Expanded Trial",
+      sans: "GT America Expanded Regular Trial",
+      sansMedium: "GT America Expanded Medium Trial",
+      sansBold: "GT America Expanded Bold Trial",
+      mono: "GT America Mono Regular Trial",
+      monoItalic: "GT America Mono Regular Italic Trial",
     },
     letterSpacings: {
       0: 0,
@@ -84,4 +90,5 @@ export const {
   theme,
   createTheme,
   config,
+  variants,
 } = stitches;
