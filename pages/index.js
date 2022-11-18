@@ -4,6 +4,7 @@ import { Button, Header, TopTracks, Text } from "../components";
 import { useState, useEffect } from "react";
 import useUser from "../hooks/use-user";
 import Container from "../components/Container";
+import { Footer } from "../components/Footer";
 
 export default function Home() {
   const [user, fetchUser] = useState(null);
@@ -58,6 +59,7 @@ export default function Home() {
             <TopTracks songs={songs} />
           </>
         )}
+        <Footer />
       </Container>
     </>
   );

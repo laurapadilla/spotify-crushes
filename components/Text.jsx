@@ -6,6 +6,7 @@ export const Text = styled("p", {
     style: {
       pageTitle: {
         fontFamily: theme.fontFamily.serif,
+        fontSize: "10vw",
       },
       subhead: {
         fontFamily: theme.fontFamily.sans,

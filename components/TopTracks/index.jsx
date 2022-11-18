@@ -32,41 +32,48 @@ export function TopTracks({ songs }) {
         background: "#eee",
         border: "1px solid black",
         boxShadow: "0 0 20px 5px #093CF2",
-        display: "grid",
-        gridTemplateColumns: "repeat(3, minmax(0, 1fr));",
-        gap: "2rem",
-        maxHeight: "60vh",
-        height: "100%",
+        display: "flex",
+        justifyContent: "space-evenly",
+        flexWrap: "wrap",
+        maxHeight: "500px",
         overflow: "auto",
-        padding: "1.5rem",
-        alignItems: "center",
-        justifyContent: "center",
-        marginX: "2rem",
+        paddingY: "1rem",
+        marginX: "1rem",
         animation: `${changeGB} 8s ease infinite`,
+        "@bp1": {
+          marginX: "2rem",
+        },
       }}
     >
       {songs.map((song, index) => {
         return (
-          <article key={song.id}>
-            <Image
-              alt={song.album}
-              src={song.albumImg.url}
-              width={350}
-              height={350}
-            />
+          <Container
+            as="article"
+            key={song.id}
+            css={{
+              minWidth: "fit-content",
+              position: "relative",
+              width: "240px",
+              padding: "20px",
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            <Container as="figure">
+              <Image
+                alt={song.album}
+                src={song.albumImg.url}
+                width={350}
+                height={350}
+              />
+            </Container>
             <Text as="p" style="songTitle" size={1.75}>
               <a href={song.songUrl}>{song.title}</a>
             </Text>
-            <Container as="span">
-              <Text as="span" style="songArtist">
-                {song.artist}
-              </Text>{" "}
-              /{" "}
-              <Text as="span" style="songAlbum">
-                {song.album}
-              </Text>
-            </Container>
-          </article>
+            <Text as="span" style="songArtist">
+              {song.artist}
+            </Text>{" "}
+          </Container>
         );
       })}
     </Container>
