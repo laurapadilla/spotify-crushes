@@ -39,6 +39,7 @@ export function TopTracks({ songs }) {
         overflow: "auto",
         paddingY: "1rem",
         marginX: "1rem",
+        marginBottom: "4rem",
         animation: `${changeGB} 8s ease infinite`,
         "@bp1": {
           marginX: "2rem",

@@ -8,6 +8,10 @@ export function Footer() {
     <Container
       as="footer"
       css={{
+        background: "#FFF",
+        position: "fixed",
+        bottom: 0,
+        left: 0,
         display: "flex",
         justifyContent: "space-between",
         width: "100%",
@@ -15,11 +19,20 @@ export function Footer() {
         marginTop: "2rem",
       }}
     >
-      <Link href="/">
+      <Link
+        href="https://github.com/laurapadilla/spotify-crushes"
+        target="_blank"
+        rel="noopener noreferer"
+      >
         <Text fontFamily="pixel">github</Text>
       </Link>
 
-      <Link href="/">
+      <Link
+        a
+        href="https://laurapadilla.xyz"
+        target="_blank"
+        rel="noopener noreferer"
+      >
         <Text fontFamily="pixel">made by @1aurapadilla</Text>
       </Link>
     </Container>

@@ -37,8 +37,15 @@ export default function Home() {
           }}
         >
           <Text style="subhead">
-            This is what {user ? "YOU" : "I"} have been listening to the last 6
-            months
+            This is what{" "}
+            {user ? (
+              <Text as="span" css={{ textDecoration: "underline" }}>
+                YOU
+              </Text>
+            ) : (
+              "I"
+            )}{" "}
+            have been listening to the last 6 months
           </Text>
         </Container>
         <Container
