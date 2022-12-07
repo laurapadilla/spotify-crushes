@@ -32,6 +32,7 @@ export function Button({ fetchUser }) {
         })
         .then((data) => {
           const { items } = data;
+          showButton(false);
           const tracks = items.map((track) => ({
             id: track.id,
             album: track.album.name,
@@ -60,11 +61,13 @@ export function Button({ fetchUser }) {
 
   return (
     <>
-      <LoginButton as="button" onClick={login}>
-        <Text fontFamily="sansMedium" size={2}>
-          Login with Spotify to see your Top 40!
-        </Text>
-      </LoginButton>
+      {button ? (
+        <LoginButton as="button" onClick={login}>
+          <Text fontFamily="sansMedium" size={2}>
+            Login with Spotify to see your Top 40!
+          </Text>
+        </LoginButton>
+      ) : null}
     </>
   );
 }
