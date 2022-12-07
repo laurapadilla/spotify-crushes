@@ -35,7 +35,7 @@ export function TopTracks({ songs }) {
         display: "flex",
         justifyContent: "space-evenly",
         flexWrap: "wrap",
-        maxHeight: "500px",
+        maxHeight: "800px",
         overflow: "auto",
         paddingY: "1rem",
         marginX: "1rem",
@@ -59,7 +59,7 @@ export function TopTracks({ songs }) {
               flexDirection: "column",
             }}
           >
-            <Container as="figure">
+            <Container as="a" href={song.albumURL}>
               <Image
                 alt={song.album}
                 src={song.albumImg.url}
@@ -71,7 +71,7 @@ export function TopTracks({ songs }) {
               <a href={song.songUrl}>{song.title}</a>
             </Text>
             <Text as="span" style="songArtist">
-              {song.artist}
+              <a href={song.artistURL}>{song.artist}</a>
             </Text>{" "}
           </Container>
         );

@@ -15,7 +15,7 @@ export function Header() {
         gap: "48px",
       }}
     >
-      <Text as="h1" size="9" style="pageTitle">
+      <Text as="h1" style="pageTitle">
         Top40.fm
       </Text>
     </Container>

@@ -39,7 +39,7 @@ export default function Home() {
           <Text style="subhead">
             {user
               ? "nice songs"
-              : "This is what I've been listening to this past year"}
+              : "This is what I've been listening to the last 6 months"}
           </Text>
         </Container>
         <Container

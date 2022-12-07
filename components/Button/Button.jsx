@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Text } from "../Text";
 import { LoginButton } from "./styles";
 
 export function Button({ fetchUser }) {
@@ -18,7 +19,7 @@ export function Button({ fetchUser }) {
       console.log("there");
       popup.close();
       fetch(
-        "https://api.spotify.com/v1/me/top/tracks?time_range=long_term&limit=40&offset=0",
+        "https://api.spotify.com/v1/me/top/tracks?time_range=medium_term&limit=40&offset=0",
         {
           method: "GET",
           headers: {
@@ -34,8 +35,12 @@ export function Button({ fetchUser }) {
           const tracks = items.map((track) => ({
             id: track.id,
             album: track.album.name,
+            albumURL: track.album.external_urls.spotify,
             albumImg: track.album.images[0],
             artist: track.artists.map((_artist) => _artist.name).join(", "),
+            artistURL: track.artists
+              .map((_artist) => _artist.external_urls.spotify)
+              .join(", "),
             songUrl: track.external_urls.spotify,
             title: track.name,
           }));
@@ -56,7 +61,9 @@ export function Button({ fetchUser }) {
   return (
     <>
       <LoginButton as="button" onClick={login}>
-        Login to see YOUR top songs!
+        <Text fontFamily="sansMedium" size={2}>
+          Login with Spotify to see your Top 40!
+        </Text>
       </LoginButton>
     </>
   );

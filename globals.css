@@ -60,7 +60,7 @@ a {
 }
 
 @font-face {
-  font-family: "GT America Expanded Trial";
+  font-family: "GT America Expanded Bold Trial";
   src: url("./fonts/GT-America-Expanded-Bold-Trial.woff2") format("woff2");
   font-weight: normal;
   font-style: bold;
@@ -94,15 +94,14 @@ a {
 
 ::-webkit-scrollbar {
   -webkit-appearance: none;
-  width: 7px;
+  width: 10px;
+  background-color: #ddd;
 }
 
 ::-webkit-scrollbar-thumb {
-  border-radius: 4px;
-  background-color: rgb(99 234 85);
-  box-shadow: 0 0 8px 5px rgb(99 234 85);
+  background-color: black;
 }
 
 body {
-  scrollbar-color: rgb(99 234 85) rgb(99 234 85);
+  scrollbar-color: black;
 }

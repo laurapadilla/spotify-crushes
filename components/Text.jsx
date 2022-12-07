@@ -16,14 +16,38 @@ export const Text = styled("p", {
         fontFamily: theme.fontFamily.sansMedium,
         textTransform: "uppercase",
         fontSize: 12,
+        color: "blue",
       },
       songArtist: {
         fontFamily: theme.fontFamily.mono,
         fontSize: 14,
+        "&:hover": {
+          textDecoration: "underline",
+        },
       },
       songAlbum: {
         fontFamily: theme.fontFamily.monoItalic,
         fontSize: 14,
+      },
+    },
+    fontFamily: {
+      mono: {
+        fontFamily: theme.fontFamily.mono,
+      },
+      serif: {
+        fontFamily: theme.fontFamily.serif,
+      },
+      sans: {
+        fontFamily: theme.fontFamily.sans,
+      },
+      sansMedium: {
+        fontFamily: theme.fontFamily.sansMedium,
+      },
+      sansBold: {
+        fontFamily: theme.fontFamily.sansBold,
+      },
+      monoItalic: {
+        fontFamily: theme.fontFamily.monoItalic,
       },
     },
     size: {
