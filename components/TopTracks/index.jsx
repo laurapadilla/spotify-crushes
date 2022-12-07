@@ -58,6 +58,7 @@ export function TopTracks({ songs }) {
               padding: "20px",
               display: "flex",
               flexDirection: "column",
+              gap: "4px",
             }}
           >
             <Container as="a" href={song.albumURL}>
@@ -68,12 +69,21 @@ export function TopTracks({ songs }) {
                 height={350}
               />
             </Container>
-            <Text as="p" style="songTitle" size={1.75}>
-              <a href={song.songUrl}>{song.title}</a>
-            </Text>
-            <Text as="span" style="songArtist">
-              <a href={song.artistURL}>{song.artist}</a>
-            </Text>{" "}
+            <Container
+              css={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "4px",
+                marginTop: "0.25rem",
+              }}
+            >
+              <Text as="p" style="songTitle" size={1.75}>
+                <a href={song.songUrl}>{song.title}</a>
+              </Text>
+              <Text as="span" style="songArtist">
+                <a href={song.artistURL}>{song.artist}</a>
+              </Text>{" "}
+            </Container>
           </Container>
         );
       })}

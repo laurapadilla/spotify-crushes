@@ -1,10 +1,16 @@
 import Head from "next/head";
 import Image from "next/image";
-import { Button, Header, TopTracks, Text } from "../components";
+import {
+  Button,
+  Footer,
+  Header,
+  Loading,
+  Text,
+  TopTracks,
+} from "../components";
 import { useState, useEffect } from "react";
 import useUser from "../hooks/use-user";
 import Container from "../components/Container";
-import { Footer } from "../components/Footer";
 
 export default function Home() {
   const [user, fetchUser] = useState(null);
@@ -39,7 +45,10 @@ export default function Home() {
           <Text style="subhead">
             This is what{" "}
             {user ? (
-              <Text as="span" css={{ textDecoration: "underline" }}>
+              <Text
+                as="span"
+                css={{ textDecoration: "underline", fontWeight: "600" }}
+              >
                 YOU
               </Text>
             ) : (
@@ -59,7 +68,7 @@ export default function Home() {
           <Button fetchUser={fetchUser} />
         </Container>
         {isLoading ? (
-          "loading..."
+          <Loading />
         ) : (
           <>
             <TopTracks songs={songs} />

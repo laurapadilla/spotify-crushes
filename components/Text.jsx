@@ -16,11 +16,13 @@ export const Text = styled("p", {
         fontFamily: theme.fontFamily.sansMedium,
         textTransform: "uppercase",
         fontSize: 12,
+        letterSpacing: "0.5px",
         color: theme.colors.blue,
       },
       songArtist: {
         fontFamily: theme.fontFamily.mono,
         fontSize: 14,
+        letterSpacing: "-0.05em",
         "&:hover": {
           textDecoration: "underline",
         },
