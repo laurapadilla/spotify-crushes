@@ -35,11 +35,12 @@ export default function Home() {
         <Header />
         <Container
           css={{
-            display: "flex",
             alignItems: "center",
+            display: "flex",
             justifyContent: "center",
-            marginTop: "2rem",
             marginBottom: "3rem",
+            marginTop: "2rem",
+            textAlign: "center",
           }}
         >
           <Text style="subhead">
