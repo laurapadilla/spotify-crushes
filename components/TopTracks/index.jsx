@@ -32,9 +32,9 @@ export function TopTracks({ songs }) {
         background: "#eee",
         border: "1px solid black",
         boxShadow: "0 0 20px 5px #093CF2",
-        display: "flex",
-        justifyContent: "space-evenly",
-        flexWrap: "wrap",
+        display: "grid",
+        gridTemplateColumns: "1fr",
+        justifyItems: "center",
         maxHeight: "800px",
         overflow: "auto",
         paddingY: "1rem",
@@ -43,6 +43,16 @@ export function TopTracks({ songs }) {
         animation: `${changeGB} 8s ease infinite`,
         "@bp1": {
           marginX: "2rem",
+          gridTemplateColumns: "repeat(2, minmax(0px, 1fr))",
+        },
+        "@bp3": {
+          gridTemplateColumns: "repeat(3, minmax(0px, 1fr))",
+        },
+        "@bp5": {
+          gridTemplateColumns: "repeat(4, minmax(0px, 1fr))",
+        },
+        "@bp6": {
+          gridTemplateColumns: "repeat(5, minmax(0px, 1fr))",
         },
       }}
     >
