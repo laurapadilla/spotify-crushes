@@ -16,10 +16,10 @@ class MyDocument extends Document {
             dangerouslySetInnerHTML={{ __html: getCssText() }}
           />
           <link rel="icon" href="/favicon.ico" />
-          <meta name="title" content="spotify crushes" />
+          <meta name="title" content="TOP40.fm" />
           <meta
             name="description"
-            content="most listened to songs on spotify of all time. made by 1aurapadilla."
+            content="most listened to songs on spotify of the last 6 months. made by 1aurapadilla."
           />
           <meta property="og:type" content="website" />
           <link
@@ -40,36 +40,27 @@ class MyDocument extends Document {
             href="/favicon-16x16.png"
           />
           <meta name="theme-color" content="#ffffff" />
-          <meta
-            property="og:url"
-            content="https://www.spotify-crushes.vercel.app/"
-          />
-          <meta
-            property="og:url"
-            content="https://www.spotify-crushes.vercel.app/"
-          />
-          <meta property="og:title" content="spotify crushes" />
+          <meta property="og:url" content="https://www.top40fm.xyz/" />
+          <meta property="og:url" content="https://www.top40fm.xyz/" />
+          <meta property="og:title" content="TOP40.fm" />
           <meta
             property="og:description"
-            content="most listened to songs on spotify of all time. made by 1aurapadilla."
+            content="most listened to songs on spotify of the last 6 months. made by 1aurapadilla."
           />
           <meta
             property="og:image"
-            content="https://www.spotify-crushes.vercel.app/open-graph.png"
+            content="https://www.top40fm.xyz/open-graph.png"
           />
           <meta property="twitter:card" content="summary_large_image" />
-          <meta
-            property="twitter:url"
-            content="https://www.spotify-crushes.vercel.app/"
-          />
-          <meta property="twitter:title" content="spotify crushes" />
+          <meta property="twitter:url" content="https://www.top40fm.xyz/" />
+          <meta property="twitter:title" content="TOP40.fm" />
           <meta
             property="twitter:description"
-            content="most listened to songs on spotify of all time. made by 1aurapadilla."
+            content="most listened to songs on spotify of the last 6 months. made by 1aurapadilla."
           />
           <meta
             property="twitter:image"
-            content="https://www.spotify-crushes.vercel.app/open-graph.png"
+            content="https://www.top40fm.xyz/open-graph.png"
           />
         </Head>
         <body>
