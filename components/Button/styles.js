@@ -9,8 +9,8 @@ const BaseButton = styled("button", {
 
 export const LoginButton = styled(BaseButton, {
   alignItems: "center",
-  background: "#18F8B5",
-  borderColor: "#15ecac #15ecac #13C08C #18F8B5",
+  background: theme.colors.green,
+  borderColor: `#15ecac #15ecac #13C08C ${theme.colors.green}`,
   borderImage: "initial",
   borderStyle: "outset",
   borderWidth: "2px",

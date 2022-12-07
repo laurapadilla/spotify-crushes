@@ -92,6 +92,15 @@ a {
   font-display: block;
 }
 
+@font-face {
+  font-family: "Self Modern";
+  src: url("./fonts/bretagne_self-modern_regular_web.woff2") format("woff2"),
+    url("./fonts/bretagne_self-modern_regular_web.woff") format(woff);
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
 ::-webkit-scrollbar {
   -webkit-appearance: none;
   width: 10px;
@@ -104,4 +113,10 @@ a {
 
 body {
   scrollbar-color: black;
+  cursor: url("/rainbow-cursor.svg"), auto;
+}
+
+::selection {
+  background: #fff;
+  color: blue;
 }

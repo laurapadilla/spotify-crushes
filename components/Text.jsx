@@ -1,7 +1,7 @@
 import { styled, theme } from "../stitches.config";
 
 export const Text = styled("p", {
-  color: "#000",
+  color: theme.colors.text,
   variants: {
     style: {
       pageTitle: {
@@ -16,7 +16,7 @@ export const Text = styled("p", {
         fontFamily: theme.fontFamily.sansMedium,
         textTransform: "uppercase",
         fontSize: 12,
-        color: "blue",
+        color: theme.colors.blue,
       },
       songArtist: {
         fontFamily: theme.fontFamily.mono,
