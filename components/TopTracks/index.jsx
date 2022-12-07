@@ -71,7 +71,12 @@ export function TopTracks({ songs }) {
               gap: "4px",
             }}
           >
-            <Container as="a" href={song.albumURL}>
+            <Container
+              as="a"
+              href={song.albumURL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Image
                 alt={song.album}
                 src={song.albumImg.url}
@@ -88,10 +93,22 @@ export function TopTracks({ songs }) {
               }}
             >
               <Text as="p" style="songTitle" size={1.75}>
-                <a href={song.songUrl}>{song.title}</a>
+                <a
+                  href={song.songUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {song.title}
+                </a>
               </Text>
               <Text as="span" style="songArtist">
-                <a href={song.artistURL}>{song.artist}</a>
+                <a
+                  href={song.artistURL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {song.artist}
+                </a>
               </Text>{" "}
             </Container>
           </Container>

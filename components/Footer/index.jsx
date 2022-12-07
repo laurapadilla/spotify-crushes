@@ -22,7 +22,7 @@ export function Footer() {
       <Link
         href="https://github.com/laurapadilla/spotify-crushes"
         target="_blank"
-        rel="noopener noreferer"
+        rel="noopener noreferrer"
       >
         <Text fontFamily="pixel">github</Text>
       </Link>
@@ -31,7 +31,7 @@ export function Footer() {
         a
         href="https://laurapadilla.xyz"
         target="_blank"
-        rel="noopener noreferer"
+        rel="noopener noreferrer"
       >
         <Text fontFamily="pixel">made by @1aurapadilla</Text>
       </Link>
