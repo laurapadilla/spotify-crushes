@@ -26,6 +26,7 @@ const stitches = createStitches({
       sansBold: "GT America Expanded Bold Trial",
       mono: "GT America Mono Regular Trial",
       monoItalic: "GT America Mono Regular Italic Trial",
+      pixel: "W95FA",
     },
     letterSpacings: {
       0: 0,

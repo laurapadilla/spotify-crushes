@@ -49,6 +49,9 @@ export const Text = styled("p", {
       monoItalic: {
         fontFamily: theme.fontFamily.monoItalic,
       },
+      pixel: {
+        fontFamily: theme.fontFamily.pixel,
+      },
     },
     size: {
       1: {
