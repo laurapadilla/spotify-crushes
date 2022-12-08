@@ -1,7 +1,8 @@
 import Container from "../Container";
 import Image from "next/image";
 import { Text } from "../Text";
-import { keyframes } from "../../stitches.config";
+import { keyframes, theme } from "../../stitches.config";
+import { AlbumOverlay, AlbumWrapper } from "./styles";
 
 const changeGB = keyframes({
   "0%": {
@@ -71,8 +72,11 @@ export function TopTracks({ songs }) {
               gap: "4px",
             }}
           >
-            <Container
+            <AlbumWrapper
               as="a"
+              css={{
+                position: "relative",
+              }}
               href={song.albumURL}
               target="_blank"
               rel="noopener noreferrer"
@@ -83,7 +87,12 @@ export function TopTracks({ songs }) {
                 width={350}
                 height={350}
               />
-            </Container>
+              <AlbumOverlay>
+                <Text fontFamily="sansMedium" css={{ color: "$white" }}>
+                  Listen to album on Spotify
+                </Text>
+              </AlbumOverlay>
+            </AlbumWrapper>
             <Container
               css={{
                 display: "flex",

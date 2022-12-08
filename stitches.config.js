@@ -7,6 +7,7 @@ const stitches = createStitches({
       green: "#18F8B5",
       text: "#000000",
       yellow: "#F4FF09",
+      white: "#ffffff",
     },
     fontSizes: {
       1: "8px",
