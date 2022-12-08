@@ -71,13 +71,7 @@ export default function Home() {
         >
           <Button fetchUser={fetchUser} />
         </Container>
-        {isLoading ? (
-          <Loading />
-        ) : (
-          <>
-            <TopTracks songs={songs} />
-          </>
-        )}
+        {isLoading ? <Loading /> : <TopTracks songs={songs} />}
         <Footer />
       </Container>
     </>
