@@ -45,12 +45,15 @@ const stitches = createStitches({
   },
   media: {
     bp0: "(min-width: 375px)",
+    ["bp0-max"]: "(max-width: 375px)",
     bp1: "(min-width: 640px)",
+    ["bp1-max"]: "(max-width: 640px)",
     bp2: "(min-width: 768px)",
+    ["bp2-max"]: "(max-width: 768px)",
     bp3: "(min-width: 960px)",
     bp4: "(min-width: 1024px)",
     bp5: "(min-width: 1200px)",
-    bp6: "(min-width: 1400px)",
+    bp6: "(min-width: 1440px)",
   },
   utils: {
     margin: (value) => ({

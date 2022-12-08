@@ -42,7 +42,7 @@ export function TopTracks({ songs }) {
         marginX: "1rem",
         marginBottom: "4rem",
         animation: `${changeGB} 8s ease infinite`,
-        "@bp1": {
+        "@bp2": {
           marginX: "2rem",
           gridTemplateColumns: "repeat(2, minmax(0px, 1fr))",
         },

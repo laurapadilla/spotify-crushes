@@ -10,7 +10,7 @@ export const Text = styled("p", {
       },
       subhead: {
         fontFamily: theme.fontFamily.sans,
-        fontSize: 20,
+        fontSize: 24,
       },
       songTitle: {
         fontFamily: theme.fontFamily.sansMedium,

@@ -9,6 +9,7 @@ export const AlbumOverlay = styled("div", {
   justifyContent: "center",
   left: 0,
   position: "absolute",
+  textAlign: "center",
   top: 0,
   transition: "all 0.2s ease-out",
   width: "100%",

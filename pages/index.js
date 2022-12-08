@@ -11,6 +11,8 @@ import {
 import { useState, useEffect } from "react";
 import useUser from "../hooks/use-user";
 import Container from "../components/Container";
+import { useMedia } from "react-use";
+import { config } from "../stitches.config";
 
 export default function Home() {
   const [user, fetchUser] = useState(null);
@@ -30,6 +32,7 @@ export default function Home() {
         as="main"
         css={{
           padding: "1rem",
+          position: "relative",
         }}
       >
         <Header />
