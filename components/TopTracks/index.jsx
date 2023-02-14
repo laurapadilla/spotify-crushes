@@ -87,7 +87,13 @@ export function TopTracks({ songs }) {
                 width={350}
                 height={350}
               />
-              <AlbumOverlay>
+              <AlbumOverlay css={{ display: "flex", gap: "4px" }}>
+                <Image
+                  src="/spotify-green.png"
+                  alt="Spotify Logo"
+                  width="25"
+                  height="25"
+                />
                 <Text fontFamily="sansMedium" css={{ color: "$white" }}>
                   Listen to album on Spotify
                 </Text>
