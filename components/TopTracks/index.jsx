@@ -81,19 +81,23 @@ export function TopTracks({ songs }) {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Image
-                alt={song.album}
-                src={song.albumImg.url}
-                width={350}
-                height={350}
-              />
-              <AlbumOverlay css={{ display: "flex", gap: "4px" }}>
+              <Container
+                css={{ position: "absolute", bottom: "8px", right: "8px" }}
+              >
                 <Image
                   src="/spotify-green.png"
                   alt="Spotify Logo"
                   width="25"
                   height="25"
                 />
+              </Container>
+              <Image
+                alt={song.album}
+                src={song.albumImg.url}
+                width={350}
+                height={350}
+              />
+              <AlbumOverlay>
                 <Text fontFamily="sansMedium" css={{ color: "$white" }}>
                   Listen to album on Spotify
                 </Text>
