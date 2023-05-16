@@ -39,6 +39,10 @@ export function Button({ fetchUser }) {
 
       window.location.hash = "";
       window.localStorage.setItem("token", token);
+
+      if (token) {
+        window.opener.spotifyCallback(token);
+      }
     }
 
     setToken(token);
