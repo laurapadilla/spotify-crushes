@@ -69,8 +69,8 @@ export function Button({ fetchUser }) {
     window.spotifyCallback = () => {
       console.log("there");
       popup.close();
+      getTracks();
     };
-    getTracks();
   };
 
   const getTracks = async () => {
@@ -132,7 +132,7 @@ export function Button({ fetchUser }) {
 
   return (
     <>
-      {button ? (
+      {button && !token ? (
         <LoginButton as="button" onClick={login}>
           <Text fontFamily="sansMedium" size={2}>
             Login with Spotify to see your Top 40!
