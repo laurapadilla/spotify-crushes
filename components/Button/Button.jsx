@@ -60,8 +60,8 @@ export function Button({ fetchUser }) {
   }, []);
 
   const logout = () => {
-    let hash = window.location.hash;
-    hash = "";
+    const token = window.location.hash;
+    token = "";
     console.log("logging out!");
   };
 
