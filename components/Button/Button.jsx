@@ -52,16 +52,17 @@ export function Button({ fetchUser }) {
     };
   };
 
+  const [token, setToken] = useState("");
+
   useEffect(() => {
-    const token = window.location.hash.substr(1).split("&")[0].split("=")[1];
+    let token = window.location.hash.substr(1).split("&")[0].split("=")[1];
     if (token) {
       window.opener.spotifyCallback(token);
     }
   }, []);
 
   const logout = () => {
-    const token = window.location.hash;
-    token = "";
+    setToken("");
     console.log("logging out!");
   };
 
