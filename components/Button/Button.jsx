@@ -17,7 +17,7 @@ export function Button({ fetchUser }) {
       "Login with Spotify",
       "width=800,height=600"
     );
-    window.spotifyCallback = (payload) => {
+    window.spotifyCallback = () => {
       console.log("there");
       popup.close();
       getTracks();
@@ -39,10 +39,6 @@ export function Button({ fetchUser }) {
 
       window.location.hash = "";
       window.localStorage.setItem("token", token);
-    }
-
-    if (token) {
-      window.opener.spotifyCallback(token);
     }
 
     setToken(token);
