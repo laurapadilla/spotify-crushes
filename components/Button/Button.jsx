@@ -58,7 +58,7 @@ export function Button({ fetchUser }) {
     const hash = window.location.hash;
 
     let token = hash.substr(1).split("&")[0].split("=")[1];
-    if (token && hash) {
+    if (token) {
       window.opener.spotifyCallback(token);
       setToken(token);
     }
@@ -67,7 +67,6 @@ export function Button({ fetchUser }) {
   const logout = () => {
     setToken("");
     window.opener.spotifyCallback("");
-
     console.log("logging out!");
   };
 
