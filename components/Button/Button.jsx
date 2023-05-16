@@ -162,7 +162,7 @@ export function Button({ fetchUser }) {
 
   return (
     <>
-      {!token ? (
+      {button ? (
         <LoginButton as="button" onClick={login}>
           <Text fontFamily="sansMedium" size={2}>
             Login with Spotify to see your Top 40!
