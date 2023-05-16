@@ -4,6 +4,8 @@ import { LoginButton } from "./styles";
 
 export function Button({ fetchUser }) {
   const [button, showButton] = useState(true);
+  const [token, setToken] = useState("");
+
   const client_id = `ad2c7654ff92405c949de032535da426`;
   const redirect_uri = `https://www.top40fm.xyz/`;
   const scopes = `user-top-read`;
@@ -18,11 +20,9 @@ export function Button({ fetchUser }) {
     window.spotifyCallback = () => {
       console.log("there");
       popup.close();
-      getTracks(token);
+      getTracks();
     };
   };
-
-  const [token, setToken] = useState("");
 
   useEffect(() => {
     const hash = window.location.hash;
@@ -49,7 +49,7 @@ export function Button({ fetchUser }) {
     window.localStorage.removeItem("token");
   };
 
-  const getTracks = async (token) => {
+  const getTracks = async () => {
     const response = await fetch(AUTHORIZATION_URL, {
       method: "GET",
       headers: {
@@ -89,7 +89,7 @@ export function Button({ fetchUser }) {
 
   return (
     <>
-      {!token ? (
+      {button & !token ? (
         <LoginButton as="a" href={AUTHORIZATION_URL}>
           <Text fontFamily="sansMedium" size={2}>
             Login with Spotify to see your Top 40!
