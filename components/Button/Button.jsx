@@ -66,14 +66,14 @@ export function Button({ fetchUser }) {
       "Login with Spotify",
       "width=800,height=600"
     );
-    window.spotifyCallback = () => {
+    window.spotifyCallback = (token) => {
       console.log("there");
       popup.close();
+      getTracks(token);
     };
-    getTracks();
   };
 
-  const getTracks = async () => {
+  const getTracks = async (token) => {
     const response = await fetch(
       "https://api.spotify.com/v1/me/top/tracks?time_range=medium_term&limit=40&offset=0",
       {
