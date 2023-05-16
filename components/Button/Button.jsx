@@ -4,7 +4,7 @@ import { LoginButton } from "./styles";
 
 export function Button({ fetchUser }) {
   const [button, showButton] = useState(true);
-  const [token, setToken] = useState("");
+  // const [token, setToken] = useState("");
   const client_id = `ad2c7654ff92405c949de032535da426`;
   const redirect_uri = `https://www.top40fm.xyz/`;
   const scopes = `user-top-read`;
