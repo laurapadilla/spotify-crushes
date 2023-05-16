@@ -59,7 +59,11 @@ export function Button({ fetchUser }) {
     let token = window.localStorage.getItem("token");
 
     if (token && hash) {
-      token = hash.substr(1).split("&")[0].split("=")[1];
+      token = hash
+        .substr(1)
+        .split("&")
+        .find((elem) => elem.startsWith("access_token"))
+        .split("=")[1];
 
       // window.opener.spotifyCallback(token);
       window.location.hash = "";
