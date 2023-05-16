@@ -64,6 +64,7 @@ export function Button({ fetchUser }) {
   const logout = () => {
     setToken("");
     console.log("logging out!");
+    showButton(true);
   };
 
   return (
