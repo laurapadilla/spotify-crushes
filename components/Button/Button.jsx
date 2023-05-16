@@ -18,7 +18,7 @@ export function Button({ fetchUser }) {
     window.spotifyCallback = () => {
       console.log("there");
       popup.close();
-      getTracks();
+      getTracks(token);
     };
   };
 
@@ -49,7 +49,7 @@ export function Button({ fetchUser }) {
     window.localStorage.removeItem("token");
   };
 
-  const getTracks = async () => {
+  const getTracks = async (token) => {
     const response = await fetch(AUTHORIZATION_URL, {
       method: "GET",
       headers: {
