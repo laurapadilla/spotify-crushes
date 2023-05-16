@@ -15,59 +15,89 @@ export function Button({ fetchUser }) {
       "Login with Spotify",
       "width=800,height=600"
     );
-    window.spotifyCallback = (payload) => {
+    window.spotifyCallback = () => {
       console.log("there");
       popup.close();
-      fetch(
-        "https://api.spotify.com/v1/me/top/tracks?time_range=medium_term&limit=40&offset=0",
-        {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${payload}`,
-          },
-        }
-      )
-        .then((response) => {
-          return response.json();
-        })
-        .then((data) => {
-          const { items } = data;
-          showButton(false);
-          const tracks = items.map((track) => ({
-            id: track.id,
-            album: track.album.name,
-            albumURL: track.album.external_urls.spotify,
-            albumImg: track.album.images[0],
-            artist: track.artists.map((_artist) => _artist.name).join(", "),
-            artistURL: track.artists
-              .map((_artist) => _artist.external_urls.spotify)
-              .join(", "),
-            songUrl: track.external_urls.spotify,
-            title: track.name,
-          }));
-          console.log(items);
-          console.log("hi");
-          fetchUser({ tracks });
-        });
+      getTracks();
     };
   };
 
+  const [token, setToken] = useState("");
+
   useEffect(() => {
-    const token = window.location.hash.substr(1).split("&")[0].split("=")[1];
-    if (token) {
-      window.opener.spotifyCallback(token);
+    const hash = window.location.hash;
+    let token = window.localStorage.getItem("token");
+
+    // getToken()
+
+    if (!token && hash) {
+      token = hash
+        .substring(1)
+        .split("&")
+        .find((elem) => elem.startsWith("access_token"))
+        .split("=")[1];
+
+      window.location.hash = "";
+      window.localStorage.setItem("token", token);
     }
+
+    setToken(token);
   }, []);
+
+  const logout = () => {
+    setToken("");
+    window.localStorage.removeItem("token");
+  };
+
+  const getTracks = async () => {
+    const response = await fetch(AUTHORIZATION_URL, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        const { items } = data;
+        showButton(false);
+        const tracks = items.map((track) => ({
+          id: track.id,
+          album: track.album.name,
+          albumURL: track.album.external_urls.spotify,
+          albumImg: track.album.images[0],
+          artist: track.artists.map((_artist) => _artist.name).join(", "),
+          artistURL: track.artists
+            .map((_artist) => _artist.external_urls.spotify)
+            .join(", "),
+          songUrl: track.external_urls.spotify,
+          title: track.name,
+        }));
+        console.log(items);
+        console.log("hi");
+        fetchUser({ tracks });
+      });
+  };
+
+  // useEffect(() => {
+  //   const token = window.location.hash.substr(1).split("&")[0].split("=")[1];
+  //   if (token) {
+  //     window.opener.spotifyCallback(token);
+  //   }
+  // }, []);
 
   return (
     <>
-      {button ? (
-        <LoginButton as="button" onClick={login}>
+      {!token ? (
+        <LoginButton as="a" href={AUTHORIZATION_URL}>
           <Text fontFamily="sansMedium" size={2}>
             Login with Spotify to see your Top 40!
           </Text>
         </LoginButton>
-      ) : null}
+      ) : (
+        <button onClick={logout}></button>
+      )}
     </>
   );
 }
