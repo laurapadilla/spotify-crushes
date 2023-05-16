@@ -132,10 +132,10 @@ export function Button({ fetchUser }) {
   //   setToken(token);
   // }, []);
 
-  // const logout = () => {
-  //   setToken("");
-  //   window.localStorage.removeItem("token");
-  // };
+  const logout = () => {
+    setToken("");
+    window.localStorage.removeItem("token");
+  };
 
   return (
     <>
@@ -145,7 +145,9 @@ export function Button({ fetchUser }) {
             Login with Spotify to see your Top 40!
           </Text>
         </LoginButton>
-      ) : null}
+      ) : (
+        <button onClick={logout}>logout</button>
+      )}
     </>
   );
 }
