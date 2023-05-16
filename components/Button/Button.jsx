@@ -96,7 +96,7 @@ export function Button({ fetchUser }) {
           </Text>
         </LoginButton>
       ) : (
-        <button onClick={logout}></button>
+        <button onClick={logout}>logout!</button>
       )}
     </>
   );
