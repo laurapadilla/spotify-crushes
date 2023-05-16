@@ -133,9 +133,7 @@ export function Button({ fetchUser }) {
             Login with Spotify to see your Top 40!
           </Text>
         </LoginButton>
-      ) : (
-        <button onClick={logout}>logout!</button>
-      )}
+      ) : null}
     </>
   );
 }
