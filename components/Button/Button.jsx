@@ -56,17 +56,21 @@ export function Button({ fetchUser }) {
 
   useEffect(() => {
     const hash = window.location.hash;
+    let token = window.localStorage.getItem("token");
 
-    let token = hash.substr(1).split("&")[0].split("=")[1];
-    if (token) {
-      window.opener.spotifyCallback(token);
+    if (!token && hash) {
+      token = hash.substr(1).split("&")[0].split("=")[1];
+
+      // window.opener.spotifyCallback(token);
+      window.location.hash = "";
+      window.localStorage.setItem("token", token);
       setToken(token);
     }
   }, []);
 
   const logout = () => {
     setToken("");
-    window.opener.spotifyCallback("");
+    window.localStorage.removeItem("token");
     console.log("logging out!");
   };
 
