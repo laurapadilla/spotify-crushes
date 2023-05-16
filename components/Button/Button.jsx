@@ -52,32 +52,22 @@ export function Button({ fetchUser }) {
     };
   };
 
-  const [token, setToken] = useState("");
-
   useEffect(() => {
-    let token = window.location.hash.substr(1).split("&")[0].split("=")[1];
+    const token = window.location.hash.substr(1).split("&")[0].split("=")[1];
     if (token) {
       window.opener.spotifyCallback(token);
     }
   }, []);
 
-  const logout = () => {
-    setToken("");
-    console.log("logging out!");
-    showButton(true);
-  };
-
   return (
     <>
-      {button && !token ? (
+      {button ? (
         <LoginButton as="button" onClick={login}>
           <Text fontFamily="sansMedium" size={2}>
             Login with Spotify to see your Top 40!
           </Text>
         </LoginButton>
-      ) : (
-        <button onClick={logout}>Logout</button>
-      )}
+      ) : null}
     </>
   );
 }
