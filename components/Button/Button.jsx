@@ -66,6 +66,8 @@ export function Button({ fetchUser }) {
 
   const logout = () => {
     setToken("");
+    window.opener.spotifyCallback("");
+
     console.log("logging out!");
   };
 
