@@ -69,43 +69,73 @@ export function Button({ fetchUser }) {
     window.spotifyCallback = (token) => {
       console.log("there");
       popup.close();
-      getTracks(token);
+      fetch(
+        "https://api.spotify.com/v1/me/top/tracks?time_range=medium_term&limit=40&offset=0",
+        {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          const { items } = data;
+          showButton(false);
+          const tracks = items.map((track) => ({
+            id: track.id,
+            album: track.album.name,
+            albumURL: track.album.external_urls.spotify,
+            albumImg: track.album.images[0],
+            artist: track.artists.map((_artist) => _artist.name).join(", "),
+            artistURL: track.artists
+              .map((_artist) => _artist.external_urls.spotify)
+              .join(", "),
+            songUrl: track.external_urls.spotify,
+            title: track.name,
+          }));
+          console.log(items);
+          console.log("hi");
+          fetchUser({ tracks });
+        });
     };
   };
 
-  const getTracks = async (token) => {
-    const response = await fetch(
-      "https://api.spotify.com/v1/me/top/tracks?time_range=medium_term&limit=40&offset=0",
-      {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    )
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        const { items } = data;
-        showButton(false);
-        const tracks = items.map((track) => ({
-          id: track.id,
-          album: track.album.name,
-          albumURL: track.album.external_urls.spotify,
-          albumImg: track.album.images[0],
-          artist: track.artists.map((_artist) => _artist.name).join(", "),
-          artistURL: track.artists
-            .map((_artist) => _artist.external_urls.spotify)
-            .join(", "),
-          songUrl: track.external_urls.spotify,
-          title: track.name,
-        }));
-        console.log(items);
-        console.log("hi");
-        fetchUser({ tracks });
-      });
-  };
+  // const getTracks = async () => {
+  //   const response = await fetch(
+  //     "https://api.spotify.com/v1/me/top/tracks?time_range=medium_term&limit=40&offset=0",
+  //     {
+  //       method: "GET",
+  //       headers: {
+  //         Authorization: `Bearer ${token}`,
+  //       },
+  //     }
+  //   )
+  //     .then((response) => {
+  //       return response.json();
+  //     })
+  //     .then((data) => {
+  //       const { items } = data;
+  //       showButton(false);
+  //       const tracks = items.map((track) => ({
+  //         id: track.id,
+  //         album: track.album.name,
+  //         albumURL: track.album.external_urls.spotify,
+  //         albumImg: track.album.images[0],
+  //         artist: track.artists.map((_artist) => _artist.name).join(", "),
+  //         artistURL: track.artists
+  //           .map((_artist) => _artist.external_urls.spotify)
+  //           .join(", "),
+  //         songUrl: track.external_urls.spotify,
+  //         title: track.name,
+  //       }));
+  //       console.log(items);
+  //       console.log("hi");
+  //       fetchUser({ tracks });
+  //     });
+  // };
 
   useEffect(() => {
     const hash = window.location.hash;
