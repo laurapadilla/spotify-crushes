@@ -69,8 +69,8 @@ export function Button({ fetchUser }) {
     window.spotifyCallback = () => {
       console.log("there");
       popup.close();
+      getTracks();
     };
-    getTracks();
   };
 
   const getTracks = async () => {
