@@ -90,7 +90,7 @@ export function Button({ fetchUser }) {
   return (
     <>
       {button && !token ? (
-        <LoginButton as="a" href={AUTHORIZATION_URL}>
+        <LoginButton as="button" onClick={login}>
           <Text fontFamily="sansMedium" size={2}>
             Login with Spotify to see your Top 40!
           </Text>
