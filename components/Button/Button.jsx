@@ -52,12 +52,23 @@ export function Button({ fetchUser }) {
     };
   };
 
+  const [token, setToken] = useState("");
+
   useEffect(() => {
-    const token = window.location.hash.substr(1).split("&")[0].split("=")[1];
-    if (token) {
+    const hash = window.location.hash;
+
+    let token = hash.substr(1).split("&")[0].split("=")[1];
+    if (!token && hash) {
       window.opener.spotifyCallback(token);
+      setToken(token);
     }
   }, []);
+
+  const logout = () => {
+    setToken("");
+    window.opener.spotifyCallback("");
+    console.log("logging out!");
+  };
 
   return (
     <>
@@ -67,7 +78,9 @@ export function Button({ fetchUser }) {
             Login with Spotify to see your Top 40!
           </Text>
         </LoginButton>
-      ) : null}
+      ) : (
+        <button onClick={logout}>Logout</button>
+      )}
     </>
   );
 }
