@@ -4,7 +4,6 @@ import { LoginButton } from "./styles";
 
 export function Button({ fetchUser }) {
   const [button, showButton] = useState(true);
-  // const [token, setToken] = useState("");
 
   const client_id = `ad2c7654ff92405c949de032535da426`;
   const redirect_uri = `https://www.top40fm.xyz/`;
@@ -18,13 +17,13 @@ export function Button({ fetchUser }) {
       "width=800,height=600"
     );
     window.spotifyCallback = (payload) => {
+      console.log("there");
       popup.close();
-
       fetch(
-        `https://api.spotify.com/v1/me/top/artists?time_range=medium_term&limit=50`,
+        "https://api.spotify.com/v1/me/top/tracks?time_range=medium_term&limit=40&offset=0",
         {
+          method: "GET",
           headers: {
-            "Content-Type": "application/json",
             Authorization: `Bearer ${payload}`,
           },
         }
@@ -35,16 +34,21 @@ export function Button({ fetchUser }) {
         .then((data) => {
           const { items } = data;
           showButton(false);
-          const genres = Array.from(
-            new Set(items.map((item) => item.genres).flat())
-          );
-          const artists = items.map((item) => ({
-            artist: item.name,
-            image: item.images[1].url,
-            url: item.external_urls["spotify"],
+          const tracks = items.map((track) => ({
+            id: track.id,
+            album: track.album.name,
+            albumURL: track.album.external_urls.spotify,
+            albumImg: track.album.images[0],
+            artist: track.artists.map((_artist) => _artist.name).join(", "),
+            artistURL: track.artists
+              .map((_artist) => _artist.external_urls.spotify)
+              .join(", "),
+            songUrl: track.external_urls.spotify,
+            title: track.name,
           }));
-
-          fetchUser({ artists, genres });
+          console.log(items);
+          console.log("hi");
+          fetchUser({ tracks });
         });
     };
   };
