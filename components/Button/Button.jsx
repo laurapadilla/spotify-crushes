@@ -74,7 +74,6 @@ export function Button({ fetchUser }) {
   };
 
   const getTracks = async () => {
-    const token = window.localStorage.getItem("token");
     const response = await fetch(
       "https://api.spotify.com/v1/me/top/tracks?time_range=medium_term&limit=40&offset=0",
       {
