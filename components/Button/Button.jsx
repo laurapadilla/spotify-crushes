@@ -4,7 +4,7 @@ import { LoginButton } from "./styles";
 
 export function Button({ fetchUser }) {
   const [button, showButton] = useState(true);
-  // const [token, setToken] = useState("");
+  const [token, setToken] = useState("");
   const client_id = `ad2c7654ff92405c949de032535da426`;
   const redirect_uri = `https://www.top40fm.xyz/`;
   const scopes = `user-top-read`;
@@ -107,30 +107,30 @@ export function Button({ fetchUser }) {
       });
   };
 
-  useEffect(() => {
-    const token = window.location.hash.substr(1).split("&")[0].split("=")[1];
-    if (token) {
-      window.opener.spotifyCallback(token);
-    }
-  }, []);
-
   // useEffect(() => {
-  //   const hash = window.location.hash;
-  //   let token = window.localStorage.getItem("token");
-
-  //   if (!token && hash) {
-  //     token = hash
-  //       .substring(1)
-  //       .split("&")
-  //       .find((elem) => elem.startsWith("access_token"))
-  //       .split("=")[1];
-
-  //     window.location.hash = "";
-  //     window.localStorage.setItem("token", token);
+  //   const token = window.location.hash.substr(1).split("&")[0].split("=")[1];
+  //   if (token) {
+  //     window.opener.spotifyCallback(token);
   //   }
-
-  //   setToken(token);
   // }, []);
+
+  useEffect(() => {
+    const hash = window.location.hash;
+    let token = window.localStorage.getItem("token");
+
+    if (!token && hash) {
+      token = hash
+        .substring(1)
+        .split("&")
+        .find((elem) => elem.startsWith("access_token"))
+        .split("=")[1];
+
+      window.location.hash = "";
+      window.localStorage.setItem("token", token);
+    }
+
+    setToken(token);
+  }, []);
 
   const logout = () => {
     setToken("");
