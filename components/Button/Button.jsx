@@ -17,7 +17,7 @@ export function Button({ fetchUser }) {
       "Login with Spotify",
       "width=800,height=600"
     );
-    window.spotifyCallback = () => {
+    window.spotifyCallback = (payload) => {
       console.log("there");
       popup.close();
       getTracks();
