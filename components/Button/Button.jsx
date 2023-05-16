@@ -52,29 +52,16 @@ export function Button({ fetchUser }) {
     };
   };
 
-  const [token, setToken] = useState("");
-
   useEffect(() => {
-    const hash = window.location.hash;
-    let token = window.localStorage.getItem("token");
-
-    if (token && hash) {
-      token = hash
-        .substr(1)
-        .split("&")
-        .find((elem) => elem.startsWith("access_token"))
-        .split("=")[1];
-
-      // window.opener.spotifyCallback(token);
-      window.location.hash = "";
-      window.localStorage.setItem("token", token);
-      setToken(token);
+    const token = window.location.hash.substr(1).split("&")[0].split("=")[1];
+    if (token) {
+      window.opener.spotifyCallback(token);
     }
   }, []);
 
   const logout = () => {
-    setToken("");
-    window.localStorage.removeItem("token");
+    let hash = window.location.hash;
+    hash = "";
     console.log("logging out!");
   };
 
