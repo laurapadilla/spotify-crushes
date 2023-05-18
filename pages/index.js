@@ -58,7 +58,7 @@ export default function Home() {
             ) : (
               "I"
             )}{" "}
-            have been listening to the last 6 months
+            have been listening to this month
           </Text>
         </Container>
         <Container

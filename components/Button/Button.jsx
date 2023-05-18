@@ -22,7 +22,7 @@ export function Button({ fetchUser }) {
       console.log("there");
       popup.close();
       fetch(
-        "https://api.spotify.com/v1/me/top/tracks?time_range=medium_term&limit=40&offset=0",
+        "https://api.spotify.com/v1/me/top/tracks?time_range=short_term&limit=40&offset=0",
         {
           method: "GET",
           headers: {
@@ -49,7 +49,7 @@ export function Button({ fetchUser }) {
             title: track.name,
           }));
           console.log(items);
-          console.log("hi");
+          console.log("logged in");
           fetchUser({ tracks });
         });
     };
