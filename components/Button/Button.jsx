@@ -98,10 +98,11 @@ export function Button({ fetchUser }) {
 
     if (success) {
       alert("Successfully disconnected from Spotify");
+      console.log("logged out", refreshToken);
     } else {
       alert("Failed to disconnect from Spotify");
+      console.log("NOT logged out", refreshToken);
     }
-    console.log("logged out", refreshToken);
   };
 
   return (
