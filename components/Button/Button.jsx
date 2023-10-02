@@ -112,8 +112,9 @@ export function Button({ fetchUser }) {
             Login with Spotify to see your Top 40!
           </Text>
         </LoginButton>
-      ) : null}
-      <button onClick={disconnectFromSpotify}>Disconnect from Spotify</button>
+      ) : (
+        <button onClick={disconnectFromSpotify}>Disconnect from Spotify</button>
+      )}
     </>
   );
 }
