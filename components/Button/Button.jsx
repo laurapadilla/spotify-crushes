@@ -91,7 +91,6 @@ export function Button({ fetchUser }) {
   };
 
   const disconnectFromSpotify = async () => {
-    console.log("logged out", refreshToken);
     const refreshToken =
       "AQAZaO0UJ-ZTbetqC_94X-ii9-rRt4CstEp4zYof1XD-sT9sTCgAQlBorEIVXvv6WoiKFGgrT0JwsoICS9MJ4cs1zMiH5LUyHRX-HlG-hIQNKJ1AHjjpQf26Hu-QJpFmUrQ";
 
@@ -102,6 +101,7 @@ export function Button({ fetchUser }) {
     } else {
       alert("Failed to disconnect from Spotify");
     }
+    console.log("logged out", refreshToken);
   };
 
   return (
