@@ -87,18 +87,17 @@ export function Button({ fetchUser }) {
       console.error("Error revoking token:", error);
     }
 
-    return false; // Token revocation failed
+    return false;
   };
 
   const disconnectFromSpotify = async () => {
-    console.log("logged out");
+    console.log("logged out", refreshToken);
     const refreshToken =
-      "AQAZaO0UJ-ZTbetqC_94X-ii9-rRt4CstEp4zYof1XD-sT9sTCgAQlBorEIVXvv6WoiKFGgrT0JwsoICS9MJ4cs1zMiH5LUyHRX-HlG-hIQNKJ1AHjjpQf26Hu-QJpFmUrQ"; // Replace with the user's refresh token
+      "AQAZaO0UJ-ZTbetqC_94X-ii9-rRt4CstEp4zYof1XD-sT9sTCgAQlBorEIVXvv6WoiKFGgrT0JwsoICS9MJ4cs1zMiH5LUyHRX-HlG-hIQNKJ1AHjjpQf26Hu-QJpFmUrQ";
 
     const success = await revokeToken(refreshToken);
 
     if (success) {
-      // Perform any necessary cleanup on your application's side
       alert("Successfully disconnected from Spotify");
     } else {
       alert("Failed to disconnect from Spotify");
