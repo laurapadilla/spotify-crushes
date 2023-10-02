@@ -61,7 +61,7 @@ export function Button({ fetchUser }) {
   }, []);
 
   const revokeToken = async (refreshToken) => {
-    const client_id = process.env.SPOTIFY_CLIENT_ID;
+    const client_id = "ad2c7654ff92405c949de032535da426";
     const client_secret = process.env.SPOTIFY_CLIENT_SECRET;
     const basic = Buffer.from(`${client_id}:${client_secret}`).toString(
       "base64"
