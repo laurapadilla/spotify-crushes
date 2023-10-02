@@ -1,6 +1,7 @@
 import { useEffect, useState, useCallback } from "react";
 import { Text } from "../Text";
 import { LoginButton } from "./styles";
+import querystring from "querystring";
 
 export function Button({ fetchUser }) {
   const [button, showButton] = useState(true);
@@ -60,17 +61,23 @@ export function Button({ fetchUser }) {
   }, []);
 
   const revokeToken = async (refreshToken) => {
-    const clientId = process.env.SPOTIFY_CLIENT_ID;
-    const clientSecret = process.env.SPOTIFY_CLIENT_SECRET;
+    const client_id = process.env.SPOTIFY_CLIENT_ID;
+    const client_secret = process.env.SPOTIFY_CLIENT_SECRET;
+    const basic = Buffer.from(`${client_id}:${client_secret}`).toString(
+      "base64"
+    );
 
     try {
       const response = await fetch("https://accounts.spotify.com/api/token", {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
-          Authorization: `Basic ${btoa(`${clientId}:${clientSecret}`)}`,
+          Authorization: `Basic ${basic}`,
         },
-        body: `token=${refreshToken}&token_type_hint=refresh_token`,
+        body: querystring.stringify({
+          grant_type: "refresh_token",
+          refreshToken,
+        }),
       });
 
       if (response.ok) {
