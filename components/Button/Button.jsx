@@ -60,50 +60,50 @@ export function Button({ fetchUser }) {
     }
   }, []);
 
-  const revokeToken = async (refreshToken) => {
-    const client_id = "ad2c7654ff92405c949de032535da426";
-    const client_secret = process.env.SPOTIFY_CLIENT_SECRET;
-    const basic = Buffer.from(`${client_id}:${client_secret}`).toString(
-      "base64"
-    );
+  // const revokeToken = async (refreshToken) => {
+  //   const client_id = "ad2c7654ff92405c949de032535da426";
+  //   const client_secret = process.env.SPOTIFY_CLIENT_SECRET;
+  //   const basic = Buffer.from(`${client_id}:${client_secret}`).toString(
+  //     "base64"
+  //   );
 
-    try {
-      const response = await fetch("https://accounts.spotify.com/api/token", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-          Authorization: `Basic ${basic}`,
-        },
-        body: querystring.stringify({
-          grant_type: "refresh_token",
-          refreshToken,
-        }),
-      });
+  //   try {
+  //     const response = await fetch("https://accounts.spotify.com/api/token", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/x-www-form-urlencoded",
+  //         Authorization: `Basic ${basic}`,
+  //       },
+  //       body: querystring.stringify({
+  //         grant_type: "refresh_token",
+  //         refreshToken,
+  //       }),
+  //     });
 
-      if (response.ok) {
-        return true; // Token successfully revoked
-      }
-    } catch (error) {
-      console.error("Error revoking token:", error);
-    }
+  //     if (response.ok) {
+  //       return true;
+  //     }
+  //   } catch (error) {
+  //     console.error("Error revoking token:", error);
+  //   }
 
-    return false;
-  };
+  //   return false;
+  // };
 
-  const disconnectFromSpotify = async () => {
-    const refreshToken =
-      "AQAZaO0UJ-ZTbetqC_94X-ii9-rRt4CstEp4zYof1XD-sT9sTCgAQlBorEIVXvv6WoiKFGgrT0JwsoICS9MJ4cs1zMiH5LUyHRX-HlG-hIQNKJ1AHjjpQf26Hu-QJpFmUrQ";
+  // const disconnectFromSpotify = async () => {
+  //   const refreshToken =
+  //     "AQAZaO0UJ-ZTbetqC_94X-ii9-rRt4CstEp4zYof1XD-sT9sTCgAQlBorEIVXvv6WoiKFGgrT0JwsoICS9MJ4cs1zMiH5LUyHRX-HlG-hIQNKJ1AHjjpQf26Hu-QJpFmUrQ";
 
-    const success = await revokeToken(refreshToken);
+  //   const success = await revokeToken(refreshToken);
 
-    if (success) {
-      alert("Successfully disconnected from Spotify");
-      console.log("logged out", refreshToken);
-    } else {
-      alert("Failed to disconnect from Spotify");
-      console.log("NOT logged out", refreshToken);
-    }
-  };
+  //   if (success) {
+  //     alert("Successfully disconnected from Spotify");
+  //     console.log("logged out", refreshToken);
+  //   } else {
+  //     alert("Failed to disconnect from Spotify");
+  //     console.log("NOT logged out", refreshToken);
+  //   }
+  // };
 
   return (
     <>
@@ -113,9 +113,9 @@ export function Button({ fetchUser }) {
             Login with Spotify to see your Top 40!
           </Text>
         </LoginButton>
-      ) : (
-        <button onClick={disconnectFromSpotify}>Disconnect from Spotify</button>
-      )}
+      ) : null
+      // <button onClick={disconnectFromSpotify}>Disconnect from Spotify</button>
+      }
     </>
   );
 }
