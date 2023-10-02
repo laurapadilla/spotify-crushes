@@ -84,7 +84,7 @@ export function Button({ fetchUser }) {
   };
 
   const disconnectFromSpotify = async () => {
-    const refreshToken = process.env.SPOTIFY_REFRESH_TOKEN; // Replace with the user's refresh token
+    const refreshToken = process.env.SPOTIFY_CLIENT; // Replace with the user's refresh token
 
     const success = await revokeToken(refreshToken);
 
@@ -104,7 +104,9 @@ export function Button({ fetchUser }) {
             Login with Spotify to see your Top 40!
           </Text>
         </LoginButton>
-      ) : null}
+      ) : (
+        <button onClick={disconnectFromSpotify}>Disconnect from Spotify</button>
+      )}
     </>
   );
 }
