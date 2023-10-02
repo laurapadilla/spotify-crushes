@@ -91,16 +91,16 @@ export function Button({ fetchUser }) {
   };
 
   const disconnectFromSpotify = async () => {
-    // const refreshToken =
-    //   "AQAZaO0UJ-ZTbetqC_94X-ii9-rRt4CstEp4zYof1XD-sT9sTCgAQlBorEIVXvv6WoiKFGgrT0JwsoICS9MJ4cs1zMiH5LUyHRX-HlG-hIQNKJ1AHjjpQf26Hu-QJpFmUrQ";
+    const refreshToken =
+      "AQAZaO0UJ-ZTbetqC_94X-ii9-rRt4CstEp4zYof1XD-sT9sTCgAQlBorEIVXvv6WoiKFGgrT0JwsoICS9MJ4cs1zMiH5LUyHRX-HlG-hIQNKJ1AHjjpQf26Hu-QJpFmUrQ";
 
-    const { refreshToken } = await revokeToken();
+    const success = await revokeToken(refreshToken);
 
-    // if (success) {
-    //   alert("Successfully disconnected from Spotify");
-    // } else {
-    //   alert("Failed to disconnect from Spotify");
-    // }
+    if (success) {
+      alert("Successfully disconnected from Spotify");
+    } else {
+      alert("Failed to disconnect from Spotify");
+    }
     console.log("logged out", refreshToken);
   };
 
